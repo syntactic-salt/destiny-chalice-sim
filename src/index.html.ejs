@@ -1,0 +1,16 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Chalice of Opulence Simulator</title>
+        <meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no">
+        <% for (let index = 0; index < htmlWebpackPlugin.files.css.length; index += 1) { %>
+        <link href="<%= htmlWebpackPlugin.files.css[index] %>" rel="stylesheet" type="text/css">
+        <% } %>
+        <% for (let index = 0; index < htmlWebpackPlugin.files.js.length; index += 1) { %>
+        <script defer src="<%= htmlWebpackPlugin.files.js[index] %>"></script>
+        <% } %>
+    </head>
+    <body>
+        <div id="appContainer"></div>
+    </body>
+</html>

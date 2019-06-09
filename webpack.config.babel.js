@@ -40,6 +40,15 @@ export default {
                     },
                 ]
             },
+            {
+                test: /\.svg$/,
+                use: [
+                    {
+                        loader: 'file-loader',
+                        options: { name: '[name].[ext]' },
+                    },
+                ],
+            },
         ],
     },
     plugins: [
