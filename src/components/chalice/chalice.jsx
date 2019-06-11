@@ -1,5 +1,5 @@
 import React from 'react';
-import image from '../simulator/chalice.svg';
+import image from '../../images/chalice.svg';
 
 export default function Chalice(props) {
     return (

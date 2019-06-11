@@ -1,10 +1,23 @@
+* {
+    box-sizing: border-box;
+}
+
 html,
 body {
     margin: 0;
     padding: 0;
 }
 
+html {
+    font-size: 62.5%;
+}
+
 body {
     background-color: #222;
+    background-image: url(../images/chalice.svg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: contain;
     color: #fff;
+    font-size: 1.6rem;
 }
