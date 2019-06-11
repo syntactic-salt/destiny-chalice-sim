@@ -11,7 +11,7 @@ export default function Simulator() {
     const runeLabel = 'Rune';
     const runes = Object.values(runesModel);
     const possibilities = itemPossibilityGenerator(itemsModel);
-    console.log(possibilities);c
+    console.log(possibilities);
     const options = runes.map(({ name }, index) => {
         return <option value={index} key={index}>{name}</option>;
     });
