@@ -7,7 +7,7 @@
     "build": "npm run clean && npm run webpack",
     "builddev": "npm run clean && npm run webpackdev",
     "clean": "rm -rf build/",
-    "start": "webpack-dev-server --host 0.0.0.0 --http2 --https --port 8080",
+    "start": "webpack-dev-server --host 0.0.0.0 --port 8080",
     "webpack": "webpack --mode=production --devtool source-map --config-register @babel/register",
     "webpackdev": "webpack --mode=development --devtool cheap-module-eval-source-map --config-register @babel/register"
   },
@@ -34,6 +34,7 @@
   },
   "dependencies": {
     "react": "16.8.6",
-    "react-dom": "16.8.6"
+    "react-dom": "16.8.6",
+    "react-tabs": "3.0.0"
   }
 }

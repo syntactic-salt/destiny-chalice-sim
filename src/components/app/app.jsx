@@ -1,13 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Simulator from '../simulator/simulator';
+import styles from './app.scss';
+import AppHeader from '../app-header/app-header';
+import CalcGroup from '../calc-group/calc-group';
 
 function App() {
     return (
-        <React.Fragment>
-            <header style={{marginBottom: '15px'}}>Chalice of Opulence Simulator</header>
-            <Simulator />
-        </React.Fragment>
+        <div className={styles.app}>
+            <AppHeader />
+            <CalcGroup />
+        </div>
     );
 }
 

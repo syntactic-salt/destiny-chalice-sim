@@ -1,0 +1,44 @@
+.drawer {
+    background-color: #222;
+    box-shadow: 0 -4px 4px 0 rgba(0, 0, 0, 0.5);
+    bottom: 0;
+    max-height: 0;
+    overflow: hidden;
+    position: absolute;
+    transition: max-height 1s;
+    width: 100vw;
+
+    &--open {
+        max-height: 75vh;
+    }
+
+    &__content {
+        padding-bottom: 10px;
+        overflow-y: auto;
+    }
+
+    &__header {
+        background-color: #111;
+        border-bottom: 1px solid #000;
+        display: grid;
+        grid-template-columns: 3rem auto 3rem;
+        margin-bottom: 10px;
+        padding: 5px;
+    }
+
+    &__header-button {
+        background: none;
+        border-width: 0;
+        font-size: 2rem;
+        grid-column-start: 3;
+    }
+
+    &__header-heading {
+        font-size: 2rem;
+        font-weight: bold;
+        grid-column-start: 2;
+        margin: 0;
+        padding: 0;
+        text-align: center;
+    }
+}

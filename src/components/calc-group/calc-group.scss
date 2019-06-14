@@ -1,0 +1,51 @@
+.calc-group {
+    display: grid;
+    grid-template-rows: 1fr auto;
+
+    &__tabs {
+        border-top: 1px solid #000;
+        bottom: 0;
+        display: flex;
+        grid-row-start: 2;
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    &__tab {
+        align-items: center;
+        background-color: #222;
+        display: flex;
+        font-weight: bold;
+        height: 60px;
+        justify-content: center;
+        position: relative;
+        text-align: center;
+        width: 50vw;
+
+        &--selected {
+            background-color: #111;
+            box-shadow: inset 0 0 2px 2px rgba(0, 0, 0, 0.5);
+
+            /*&::before {
+                background-color: #ddd;
+                content: '';
+                height: 5px;
+                position: absolute;
+                top: -5px;
+                width: 100%
+            }*/
+        }
+    }
+
+    &__tab-panel {
+        display: flex;
+        flex-direction: column;
+        grid-column-start: 1;
+        grid-row-start: 1;
+    }
+
+    &__calc {
+        flex-grow: 1;
+    }
+}

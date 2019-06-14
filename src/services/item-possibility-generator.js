@@ -1,7 +1,7 @@
 const itemPossibilityGenerator = (itemParameters) => {
     let items = Object.values(itemParameters);
     let tempItems = [];
-    const itemMap = new Map();
+    const possibilities = {};
 
     items.forEach(({ intrinsics, name, masterworks, runes }) => {
         let item = { name, masterwork: 'Random' };
@@ -10,7 +10,8 @@ const itemPossibilityGenerator = (itemParameters) => {
             item.intrinsic = 'Random';
         }
 
-        itemMap.set([ runes[0] ], item);
+        let runeKey = [ runes[0].id ].toString();
+        possibilities[runeKey] = [ ...possibilities[runeKey] || [], item ];
         runes[1].forEach((rune) => {
             item = { name };
 
@@ -22,10 +23,11 @@ const itemPossibilityGenerator = (itemParameters) => {
                 });
             }
 
-            itemMap.set([ runes[0], rune ], { ...item, masterwork: 'Random' });
+            runeKey = [runes[0].id, rune.id].toString();
+            possibilities[runeKey] = [...possibilities[runeKey] || [], { ...item, masterwork: 'Random' }];
 
             item.masterworks = masterworks;
-            item.runes = [ runes[0], rune ];
+            item.runes = [runes[0], rune];
 
             tempItems.push(item);
         });
@@ -43,12 +45,12 @@ const itemPossibilityGenerator = (itemParameters) => {
                     item.intrinsic = intrinsic;
                 }
 
-                itemMap.set([ ...runes, rune ], item);
+                possibilities[[runes[0].id, runes[1].id, rune.id].toString()] = [item];
             });
         });
     });
 
-    return itemMap;
+    return possibilities;
 };
 
 export default itemPossibilityGenerator;

@@ -41,6 +41,19 @@ export default {
                 ]
             },
             {
+                test: /\.css$/,
+                use: [
+                    {
+                        loader: MiniCSSExtractPlugin.loader,
+                        options: { hmr: true },
+                    },
+                    {
+                        loader: 'css-loader',
+                        options: { sourceMap: true }
+                    },
+                ],
+            },
+            {
                 test: /\.svg$/,
                 use: [
                     {

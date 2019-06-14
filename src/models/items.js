@@ -10,15 +10,17 @@ const armorIntrinsics = [ heavy, mobile, restorative ];
 
 const items = {
     tangledWebClass: {
-       name: 'Tangled Web Class Armor',
-       runes: [
-           runes.joy,
-           [ runes.joy, runes.beast, runes.jubilation ],
+        id: 1,
+        name: 'Tangled Web Class Armor',
+        runes: [
+            runes.joy,
+            [ runes.joy, runes.beast, runes.jubilation ],
         ],
         masterworks: armorMasterworks,
-        intrinsics: armorIntrinsics,
+        intrinsics: [],
     },
     exodusDownClass: {
+        id: 2,
         name: 'Exodus Down Class Armor',
         runes: [
             runes.joy,
@@ -28,6 +30,7 @@ const items = {
         intrinsics: armorIntrinsics,
     },
     reverieDawnClass: {
+        id: 3,
         name: 'Reverie Dawn Class Armor',
         runes: [
             runes.joy,
@@ -37,6 +40,7 @@ const items = {
         intrinsics: armorIntrinsics,
     },
     opulentClass: {
+        id: 4,
         name: 'Opulent Class Armor',
         runes: [
             runes.joy,

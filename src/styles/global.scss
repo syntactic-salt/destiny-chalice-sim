@@ -4,6 +4,7 @@
 
 html,
 body {
+    height: 100%;
     margin: 0;
     padding: 0;
 }
@@ -12,12 +13,30 @@ html {
     font-size: 62.5%;
 }
 
+fieldset {
+    border-width: 0;
+    margin: 0;
+    padding: 0;
+}
+
 body {
     background-color: #222;
     background-image: url(../images/chalice.svg);
     background-position: center center;
     background-repeat: no-repeat;
     background-size: contain;
-    color: #fff;
+}
+
+button {
+    cursor: pointer;
+}
+
+body,
+button,
+h2,
+select,
+table {
+    color: #ddd;
+    font-family: 'Roboto', sans-serif;
     font-size: 1.6rem;
 }

@@ -1,0 +1,59 @@
+$calculator-field-width: 300px;
+$calculator-field-spacing: 10px;
+
+.calculator {
+    height: 100%;
+    position: relative;
+
+    &__form {
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__field-group {
+        align-items: center;
+        border-width: 0;
+        display: flex;
+        flex-direction: column;
+        margin: 0;
+        padding: 0;
+
+        @media (min-width: $calculator-field-width * 3) {
+            flex-direction: row;
+            justify-content: center;
+        }
+    }
+
+    &__field {
+        display: flex;
+        flex-direction: column;
+        padding: $calculator-field-spacing;
+        width: $calculator-field-width;
+    }
+
+    &__field-label {
+        margin-bottom: $calculator-field-spacing / 2;
+    }
+
+    &__field-picker,
+    &__trigger {
+        background-color: #444;
+        border: 1px solid #333;
+        border-radius: 2px;
+
+        &:disabled {
+            color: #666;
+        }
+    }
+
+    &__field-picker {
+        padding: $calculator-field-spacing;
+        width: $calculator-field-width - $calculator-field-spacing * 2;
+    }
+
+    &__trigger {
+        margin: $calculator-field-spacing;
+        padding: $calculator-field-spacing;
+    }
+}
