@@ -3,6 +3,7 @@ import HTMLWebpackPlugin from 'html-webpack-plugin';
 import MiniCSSExtractPlugin from 'mini-css-extract-plugin';
 import CSSNano from 'cssnano';
 import Autoprefixer from 'autoprefixer';
+import TerserWebpackPlugin from 'terser-webpack-plugin';
 
 export default (env) => {
     return {
@@ -90,15 +91,25 @@ export default (env) => {
             ],
         },
         optimization: {
+            minimizer: [
+                new TerserWebpackPlugin(
+                    {
+                        terserOptions: {
+                            parallel: true,
+                            output: { comments: false },
+                        },
+                    },
+                ),
+            ],
             runtimeChunk: 'single',
-                splitChunks: {
+            splitChunks: {
                 chunks: 'all',
-                    maxInitialRequests: Infinity,
-                    minSize: 0,
-                    cacheGroups: {
+                maxInitialRequests: Infinity,
+                minSize: 0,
+                cacheGroups: {
                     vendor: {
                         test: /[\\/]node_modules[\\/]/,
-                            name(module) {
+                        name(module) {
                             const packageName = module.context.match(/[\\/]node_modules[\\/](.*?)([\\/]|$)/)[1];
                             return `vendor.${packageName.replace('@', '')}`;
                         },
