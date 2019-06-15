@@ -37,7 +37,7 @@ export default function ItemToRuneCalc(props) {
     const handleSubmit = (event) => {
         event.preventDefault();
         const runeSlotOne = [item.runes[0].name];
-        let runeSlotTwo = item.runes[1];
+        let runeSlotTwo = [...item.runes[1]];
 
         if (intrinsicId) {
             const [intrinsic] = Object.values(intrinsicsModel).filter(intrinsic => intrinsic.id === intrinsicId);
