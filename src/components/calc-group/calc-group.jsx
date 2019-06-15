@@ -7,13 +7,18 @@ import styles from './calc-group.scss';
 
 export default function CalcGroup() {
     return (
-        <Tabs className={styles.calcGroup} selectedTabClassName={styles.calcGroupTabSelected}>
-            <TabPanel className={styles.calcGroupTabPanel}>
-                <ItemToRuneCalc />
-            </TabPanel>
-            <TabPanel className={styles.calcGroupTabPanel}>
-                <RuneToItemCalc className={styles.calcGroupCalc} />
-            </TabPanel>
+        <Tabs className={styles.calcGroup}
+              selectedTabClassName={styles.calcGroupTabSelected}
+              selectedTabPanelClassName={styles.calcGroupTabPanelSelected}
+              forceRenderTabPanel={true}>
+            <div className={styles.calcGroupTabPanelGroup}>
+                <TabPanel className={styles.calcGroupTabPanel}>
+                    <ItemToRuneCalc  className={styles.calcGroupCalc} />
+                </TabPanel>
+                <TabPanel className={styles.calcGroupTabPanel}>
+                    <RuneToItemCalc className={styles.calcGroupCalc} />
+                </TabPanel>
+            </div>
             <TabList className={styles.calcGroupTabs}>
                 <Tab className={styles.calcGroupTab}>Choose Item</Tab>
                 <Tab className={styles.calcGroupTab}>Choose Runes</Tab>

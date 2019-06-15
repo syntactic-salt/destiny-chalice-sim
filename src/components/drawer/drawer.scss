@@ -5,11 +5,11 @@
     max-height: 0;
     overflow: hidden;
     position: absolute;
-    transition: max-height 1s;
+    transition: max-height 1s ease-in-out;
     width: 100vw;
 
     &--open {
-        max-height: 75vh;
+        max-height: 100%;
     }
 
     &__content {

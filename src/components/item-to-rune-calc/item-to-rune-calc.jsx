@@ -24,7 +24,7 @@ const itemOptions = Object.values(itemsModel).sort(nameSort).map(({ id, name }, 
     return <option key={index} value={id}>{name}</option>;
 });
 
-export default function ItemToRuneCalc() {
+export default function ItemToRuneCalc(props) {
     const [itemId, setItemId] = useState('');
     const [item, setItem] = useState(undefined);
     const [intrinsicId, setIntrinsicId] = useState('');
@@ -107,7 +107,7 @@ export default function ItemToRuneCalc() {
     };
 
     return (
-        <section className={styles.calculator}>
+        <section className={`${props.className} ${styles.calculator}`}>
             <form className={styles.calculatorForm} onSubmit={handleSubmit}>
                 <fieldset>
                     <div className={styles.calculatorFieldGroup}>
