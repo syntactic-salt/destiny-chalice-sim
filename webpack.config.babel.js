@@ -1,6 +1,8 @@
 import path from 'path';
 import HTMLWebpackPlugin from 'html-webpack-plugin';
 import MiniCSSExtractPlugin from 'mini-css-extract-plugin';
+import CSSNano from 'cssnano';
+import Autoprefixer from 'autoprefixer';
 
 export default (env) => {
     return {
@@ -33,16 +35,27 @@ export default (env) => {
                             loader: 'css-loader',
                             options: {
                                 sourceMap: true,
-                                modules: true,
-                                localIdentName: '[name]__[local]___[hash:base64:5]',
-                                camelCase: true,
+                                localsConvention: 'camelCase',
+                                modules: {
+                                    localIdentName: '[name]__[local]___[hash:base64:5]',
+                                },
                             },
+                        },
+                        {
+                            loader: 'postcss-loader',
+                            options: {
+                                sourceMap: true,
+                                ident: 'postscss',
+                                plugins: env.production
+                                    ? [Autoprefixer, CSSNano]
+                                    : [Autoprefixer],
+                            }
                         },
                         {
                             loader: 'sass-loader',
                             options: { sourceMap: true },
                         },
-                    ]
+                    ],
                 },
                 {
                     test: /\.css$/,
@@ -54,6 +67,14 @@ export default (env) => {
                         {
                             loader: 'css-loader',
                             options: { sourceMap: true }
+                        },
+                        {
+                            loader: 'postcss-loader',
+                            options: {
+                                sourceMap: true,
+                                ident: 'postcss',
+                                plugins: env.production ? [CSSNano] : [],
+                            },
                         },
                     ],
                 },
