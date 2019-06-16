@@ -4,16 +4,19 @@ import MiniCSSExtractPlugin from 'mini-css-extract-plugin';
 import CSSNano from 'cssnano';
 import Autoprefixer from 'autoprefixer';
 import TerserWebpackPlugin from 'terser-webpack-plugin';
+import { GenerateSW } from 'workbox-webpack-plugin';
 
 export default (env) => {
+    const hashLength = 12;
+
     return {
         entry: {
             index: './src/index.js'
         },
         output: {
             path: path.resolve(__dirname, 'build'),
-                filename: `[name]${env.production ? '.[contenthash]' : ''}.js`,
-                chunkFilename: `[name]${env.production ? '.[contenthash]' : ''}.js`
+                filename: `[name]${env.production ? `.[contenthash:${hashLength}]` : ''}.js`,
+                chunkFilename: `[name]${env.production ? `.[contenthash:${hashLength}]` : ''}.js`
         },
         resolve: {
             extensions: ['.js', '.jsx'],
@@ -84,7 +87,7 @@ export default (env) => {
                     use: [
                         {
                             loader: 'file-loader',
-                            options: { name: `[name]${env.production ? '.[contenthash]' : ''}.[ext]` },
+                            options: { name: `[name]${env.production ? `.[contenthash:${hashLength}]` : ''}.[ext]` },
                         },
                     ],
                 },
@@ -127,8 +130,22 @@ export default (env) => {
             ),
             new MiniCSSExtractPlugin(
                 {
-                    filename: `[name]${env.production ? '.[contenthash]' : ''}.css`,
+                    filename: `[name]${env.production ? `.[contenthash:${hashLength}]` : ''}.css`,
                 }
+            ),
+            new GenerateSW(
+                {
+                    cleanupOutdatedCaches: true,
+                    clientsClaim: true,
+                    // dontCacheBustURLsMatching: /\.\w{12}\.(js|css|svg)/,
+                    importWorkboxFrom: 'local',
+                    offlineGoogleAnalytics: {
+                        parameterOverrides: {
+                            cd1: 'offline',
+                        },
+                    },
+                    skipWaiting: true,
+                },
             ),
         ],
     };

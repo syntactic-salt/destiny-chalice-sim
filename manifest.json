@@ -1,0 +1,10 @@
+{
+  "short_name": "Tex Mechanica",
+  "name": "Tex Mechanica",
+  "start_url": "/",
+  "background_color": "#222",
+  "display": "standalone",
+  "orientation": "portrait",
+  "scope": "/",
+  "theme_color": "#111111"
+}

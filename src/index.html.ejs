@@ -11,12 +11,17 @@
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
 
-            gtag('config', '<%= GAUAID %>');
+            gtag('config', '<%= GAUAID %>', {
+                'custom_map': { 'dimension1': 'networkStatus'}
+            });
+            gtag('event', 'network_status', { 'networkStatus': 'online' });
         </script>
         <meta charset="utf-8">
-        <title>Chalice of Opulence Calculator</title>
+        <meta name="theme-color" content="#111111">
+        <title>Tex Mechanica</title>
         <meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no">
-        <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
+        <link rel="manifest" href="manifest.json">
+        <link href="//fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
         <% for (let index = 0; index < htmlWebpackPlugin.files.css.length; index += 1) { %>
         <link href="<%= htmlWebpackPlugin.files.css[index] %>" rel="stylesheet" type="text/css">
         <% } %>
