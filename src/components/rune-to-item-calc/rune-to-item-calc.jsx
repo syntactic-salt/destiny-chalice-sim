@@ -22,8 +22,8 @@ const options = runes.sort((val1, val2) => {
     }
 
     return 0;
-}).map(({ id, name }, index) => {
-    return <option value={id} key={index}>{name}</option>;
+}).map(({ id, color, name }, index) => {
+    return <option value={id} key={index}>{`${name} (${color})`}</option>;
 });
 
 export default function RuneToItemCalc(props) {
