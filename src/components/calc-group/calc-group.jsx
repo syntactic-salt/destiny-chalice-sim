@@ -3,6 +3,7 @@ import { Tab, TabList, TabPanel, Tabs } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 import RuneToItemCalc from '../rune-to-item-calc/rune-to-item-calc';
 import ItemToRuneCalc from '../item-to-rune-calc/item-to-rune-calc';
+import Logo from '../logo/logo';
 import styles from './calc-group.scss';
 
 export default function CalcGroup() {
@@ -12,6 +13,7 @@ export default function CalcGroup() {
               selectedTabPanelClassName={styles.calcGroupTabPanelSelected}
               forceRenderTabPanel={true}>
             <div className={styles.calcGroupTabPanelGroup}>
+                <Logo className={styles.calcGroupLogo} variant='dark' />
                 <TabPanel className={styles.calcGroupTabPanel}>
                     <ItemToRuneCalc  className={styles.calcGroupCalc} />
                 </TabPanel>

@@ -1,0 +1,39 @@
+@import "../../styles/variables";
+
+.menu {
+    background-color: #222;
+    margin-left: -70vw;
+    transition: margin-left 0.5s ease-in-out, box-shadow 0.5s linear;
+    transition-delay: 0.2s;
+    width: 70vw;
+    z-index: $z-index-menu;
+
+    &.menu--is-open {
+        box-shadow: 4px 0 4px 0 rgba(0, 0, 0, 0.5);
+        margin-left: 0;
+    }
+
+    &__list {
+        list-style-type: none;
+        margin: $spacing-default 0 0;
+        padding: 0;
+    }
+
+    &__list-link {
+        color: $color-typography;
+        display: block;
+        padding: $spacing-default;
+        text-decoration: none;
+        width: 100%;
+
+        &:hover {
+            background-color: $color-secondary;
+            color: $color-typography;
+        }
+
+        &--active {
+            background-color: $color-secondary;
+            box-shadow: inset 0 0 2px 2px rgba(0, 0, 0, 0.5);
+        }
+    }
+}

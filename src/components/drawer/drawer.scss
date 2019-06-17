@@ -1,11 +1,13 @@
+@import "../../styles/variables";
+
 .drawer {
-    background-color: #222;
+    background-color: $color-primary;
     box-shadow: 0 -4px 4px 0 rgba(0, 0, 0, 0.5);
     bottom: 0;
     max-height: 0;
     overflow: hidden;
     position: absolute;
-    transition: max-height 1s ease-in-out;
+    transition: max-height 0.7s ease-in-out;
     width: 100vw;
 
     &--open {
