@@ -97,6 +97,7 @@ export default (env) => {
             minimizer: [
                 new TerserWebpackPlugin(
                     {
+                        sourceMap: true,
                         terserOptions: {
                             parallel: true,
                             output: { comments: false },
