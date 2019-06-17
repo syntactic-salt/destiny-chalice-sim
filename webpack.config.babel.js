@@ -4,6 +4,7 @@ import MiniCSSExtractPlugin from 'mini-css-extract-plugin';
 import CSSNano from 'cssnano';
 import Autoprefixer from 'autoprefixer';
 import TerserWebpackPlugin from 'terser-webpack-plugin';
+import CopyWebpackPlugin from 'copy-webpack-plugin';
 import { GenerateSW } from 'workbox-webpack-plugin';
 
 export default (env) => {
@@ -138,7 +139,6 @@ export default (env) => {
                 {
                     cleanupOutdatedCaches: true,
                     clientsClaim: true,
-                    // dontCacheBustURLsMatching: /\.\w{12}\.(js|css|svg)/,
                     importWorkboxFrom: 'local',
                     offlineGoogleAnalytics: {
                         parameterOverrides: {
@@ -148,6 +148,9 @@ export default (env) => {
                     skipWaiting: true,
                 },
             ),
+            new CopyWebpackPlugin([
+                { from: 'manifest.json' },
+            ]),
         ],
     };
 };
