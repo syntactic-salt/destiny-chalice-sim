@@ -76,6 +76,7 @@ export default function RuneToItemCalc(props) {
 
     return (
         <section className={`${styles.calculator} ${props.className}`}>
+            <h2 className={styles.calculatorHeading}>Chalice of Opulence Calculator</h2>
             <form className={styles.calculatorForm} onSubmit={handleSubmit}>
                 <fieldset>
                     <div className={styles.calculatorFieldGroup}>

@@ -1,9 +1,16 @@
+@import "../../styles/variables";
+
 $calculator-field-width: 300px;
-$calculator-field-spacing: 10px;
 
 .calculator {
     height: 100%;
+    margin-top: $spacing-default * 2;
     position: relative;
+
+    &__heading {
+        margin: 0;
+        text-align: center;
+    }
 
     &__form {
         align-items: center;
@@ -28,12 +35,12 @@ $calculator-field-spacing: 10px;
     &__field {
         display: flex;
         flex-direction: column;
-        padding: $calculator-field-spacing;
+        padding: $spacing-default;
         width: $calculator-field-width;
     }
 
     &__field-label {
-        margin-bottom: $calculator-field-spacing / 2;
+        margin-bottom: $spacing-default / 2;
     }
 
     &__field-picker,
@@ -48,12 +55,12 @@ $calculator-field-spacing: 10px;
     }
 
     &__field-picker {
-        padding: $calculator-field-spacing;
-        width: $calculator-field-width - $calculator-field-spacing * 2;
+        padding: $spacing-default;
+        width: $calculator-field-width - $spacing-default * 2;
     }
 
     &__trigger {
-        margin: $calculator-field-spacing;
-        padding: $calculator-field-spacing;
+        margin: $spacing-default;
+        padding: $spacing-default;
     }
 }

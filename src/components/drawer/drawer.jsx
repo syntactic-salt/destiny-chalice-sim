@@ -38,7 +38,7 @@ export default function Drawer(props) {
     return (
         <div className={drawerStyles()} ref={node}>
             <header className={styles.drawerHeader}>
-                <h2 className={styles.drawerHeaderHeading}>RESULTS</h2>
+                <h3 className={styles.drawerHeaderHeading}>RESULTS</h3>
                 <button className={styles.drawerHeaderButton} onClick={props.onClose}>X</button>
             </header>
             <section className={styles.drawerContent}>{props.children}</section>

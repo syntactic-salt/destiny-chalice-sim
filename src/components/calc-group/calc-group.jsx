@@ -13,12 +13,12 @@ export default function CalcGroup() {
               selectedTabPanelClassName={styles.calcGroupTabPanelSelected}
               forceRenderTabPanel={true}>
             <div className={styles.calcGroupTabPanelGroup}>
-                <Logo className={styles.calcGroupLogo} variant='dark' />
+                <Logo className={styles.calcGroupLogo} variant='dark'/>
                 <TabPanel className={styles.calcGroupTabPanel}>
-                    <ItemToRuneCalc  className={styles.calcGroupCalc} />
+                    <ItemToRuneCalc/>
                 </TabPanel>
                 <TabPanel className={styles.calcGroupTabPanel}>
-                    <RuneToItemCalc className={styles.calcGroupCalc} />
+                    <RuneToItemCalc/>
                 </TabPanel>
             </div>
             <TabList className={styles.calcGroupTabs}>

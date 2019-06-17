@@ -24,7 +24,7 @@ const itemOptions = Object.values(itemsModel).sort(nameSort).map(({ id, name }, 
     return <option key={index} value={id}>{name}</option>;
 });
 
-export default function ItemToRuneCalc(props) {
+export default function ItemToRuneCalc() {
     const [itemId, setItemId] = useState('');
     const [item, setItem] = useState(undefined);
     const [intrinsicId, setIntrinsicId] = useState('');
@@ -107,7 +107,8 @@ export default function ItemToRuneCalc(props) {
     };
 
     return (
-        <section className={`${props.className} ${styles.calculator}`}>
+        <section className={styles.calculator}>
+            <h2 className={styles.calculatorHeading}>Chalice of Opulence Calculator</h2>
             <form className={styles.calculatorForm} onSubmit={handleSubmit}>
                 <fieldset>
                     <div className={styles.calculatorFieldGroup}>
@@ -116,7 +117,7 @@ export default function ItemToRuneCalc(props) {
                             <select className={styles.calculatorFieldPicker}
                                     onChange={handleItem}
                                     value={itemId}
-                                    required>
+                                    required>f
                                 <option value="">Choose an Item</option>
                                 {itemOptions}
                             </select>

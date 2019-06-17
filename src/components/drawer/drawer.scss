@@ -15,12 +15,12 @@
     }
 
     &__content {
-        padding-bottom: 10px;
+        padding-bottom: $spacing-default;
         overflow-y: auto;
     }
 
     &__header {
-        background-color: #111;
+        background-color: $color-secondary;
         border-bottom: 1px solid #000;
         display: grid;
         grid-template-columns: 3rem auto 3rem;
@@ -36,11 +36,8 @@
     }
 
     &__header-heading {
-        font-size: 2rem;
-        font-weight: bold;
         grid-column-start: 2;
         margin: 0;
-        padding: 0;
         text-align: center;
     }
 }
