@@ -1,0 +1,66 @@
+@import "../../styles/variables";
+
+$calculator-field-width: 300px;
+
+.calculator {
+    height: 100%;
+    margin-top: $spacing-default * 2;
+    position: relative;
+
+    &__heading {
+        margin: 0;
+        text-align: center;
+    }
+
+    &__form {
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__field-group {
+        align-items: center;
+        border-width: 0;
+        display: flex;
+        flex-direction: column;
+        margin: 0;
+        padding: 0;
+
+        @media (min-width: $calculator-field-width * 3) {
+            flex-direction: row;
+            justify-content: center;
+        }
+    }
+
+    &__field {
+        display: flex;
+        flex-direction: column;
+        padding: $spacing-default;
+        width: $calculator-field-width;
+    }
+
+    &__field-label {
+        margin-bottom: $spacing-default / 2;
+    }
+
+    &__field-picker,
+    &__trigger {
+        background-color: #444;
+        border: 1px solid #333;
+        border-radius: 2px;
+
+        &:disabled {
+            color: #666;
+        }
+    }
+
+    &__field-picker {
+        padding: $spacing-default;
+        width: $calculator-field-width - $spacing-default * 2;
+    }
+
+    &__trigger {
+        margin: $spacing-default;
+        padding: $spacing-default;
+    }
+}
