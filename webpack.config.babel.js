@@ -149,7 +149,9 @@ export default (env) => {
                 },
             ),
             new CopyWebpackPlugin([
-                { from: 'manifest.json' },
+                { from: 'src/manifest.json', to: '.' },
+                { from: 'src/images/**/*.png', to: 'images/', flatten: true },
+                { from: 'src/images/**/*.ico', to: 'images/', flatten: true },
             ]),
         ],
     };
