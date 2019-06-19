@@ -1,11 +1,12 @@
+@import "../../styles/mixins";
+@import "../../styles/variables";
 $hamburger-types: (spin);
-$hamburger-layer-color: #ddd;
+$hamburger-layer-color: $color-typography;
+$hamburger-active-layer-color: $color-accent;
 $hamburger-hover-opacity: 1.0;
 $hamburger-padding-x: 10px;
 $hamburger-padding-y: 10px;
 @import "~hamburgers/_sass/hamburgers/hamburgers";
-@import "../../styles/mixins";
-@import "../../styles/variables";
 
 .hamburger:hover {
     @media (hover: hover) {
@@ -39,11 +40,6 @@ $hamburger-padding-y: 10px;
 
         @media (any-hover: none) {
             outline-style: none;
-        }
-
-        &--is-active {
-            box-shadow: inset 0 0 5px 5px rgba(0, 0, 0, 0.5);;
-            opacity: 0.5;
         }
     }
 
