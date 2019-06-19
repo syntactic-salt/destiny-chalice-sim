@@ -2,10 +2,20 @@
 
 .menu {
     background-color: #222;
-    margin-left: -70vw;
+    margin-left: -75vw;
     transition: margin-left 0.5s ease-in-out, box-shadow 0.5s linear;
-    width: 70vw;
+    width: 75vw;
     z-index: $z-index-menu;
+
+    @media (min-width: 600px) {
+        margin-left: -50vw;
+        width: 50vw;
+    }
+
+    @media (min-width: 1200px) {
+        margin-left: -25vw;
+        width: 25vw;
+    }
 
     &.menu--is-open {
         box-shadow: 4px 0 4px 0 rgba(0, 0, 0, 0.5);
