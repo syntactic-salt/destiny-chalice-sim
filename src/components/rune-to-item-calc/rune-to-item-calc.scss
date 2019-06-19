@@ -43,7 +43,8 @@ $calculator-field-width: 300px;
         margin-bottom: $spacing-default / 2;
     }
 
-    &__field-picker {
+    &__field-picker,
+    &__trigger {
         background-color: #444;
         border: 1px solid #333;
         border-radius: 2px;
