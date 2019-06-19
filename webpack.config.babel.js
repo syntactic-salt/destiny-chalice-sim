@@ -126,7 +126,7 @@ export default (env) => {
             new HTMLWebpackPlugin(
                 {
                     inject: false,
-                    minify: env.production ? { collapseWhitespace: true, removeComments: true } : false,
+                    minify: env.production ? { collapseWhitespace: true, removeComments: true, minifyJS: true } : false,
                     template: 'src/index.html.ejs',
                 },
             ),

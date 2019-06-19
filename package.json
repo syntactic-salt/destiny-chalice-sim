@@ -1,13 +1,14 @@
 {
   "name": "destiny-chalice-sim",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
   "main": "src/index.js",
   "scripts": {
     "build": "npm run clean && npm run webpack",
     "builddev": "npm run clean && npm run webpackdev",
     "clean": "rm -rf build/",
-    "start": "webpack-dev-server --env.production=0 --https --http2 --host 0.0.0.0 --port 8080",
+    "start": "webpack-dev-server --env.production --mode=production --https --http2 --host 0.0.0.0 --port 8080",
+    "startdev": "webpack-dev-server --env.production=0 --mode=development --https --http2 --host 0.0.0.0 --port 8080",
     "webpack": "webpack --env.production --mode=production --devtool source-map --config-register @babel/register",
     "webpackdev": "webpack --env.production=0 --mode=development --devtool cheap-module-eval-source-map --config-register @babel/register"
   },
