@@ -26,6 +26,9 @@ body {
 }
 
 button {
+    background-color: $color-accent;
+    border-radius: 2px;
+    border-style: none;
     cursor: pointer;
 }
 

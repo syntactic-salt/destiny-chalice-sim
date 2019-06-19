@@ -1,5 +1,7 @@
+@import "../../styles/variables";
+
 .logo {
-    fill: #ddd;
+    fill: $color-accent;
 
     &--dark {
         fill: #000;
