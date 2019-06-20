@@ -98,12 +98,6 @@ export default function ItemToRuneCalc() {
 
     const handleClose = () => {
         setShowResults(false);
-        setMasterworkId('');
-        setIntrinsicId('');
-        setItemId('');
-        setItem(undefined);
-        setIntrinsicOptions([]);
-        setMasterworkOptions([]);
     };
 
     return (

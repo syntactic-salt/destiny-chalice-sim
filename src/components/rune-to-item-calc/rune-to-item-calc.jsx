@@ -69,9 +69,6 @@ export default function RuneToItemCalc(props) {
 
     const handleClose = () => {
         setShowResults(false);
-        setRuneOne('');
-        setRuneTwo('');
-        setRuneThree('');
     };
 
     return (
