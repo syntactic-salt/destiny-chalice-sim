@@ -60,6 +60,12 @@ export default function Menu(props) {
                 <li>
                     <NavLink className={styles.menuListLink}
                              exact
+                             to='/feedback'
+                             activeClassName={styles.menuListLinkActive}>Feedback & Bug Reports</NavLink>
+                </li>
+                <li>
+                    <NavLink className={styles.menuListLink}
+                             exact
                              to='/about'
                              activeClassName={styles.menuListLinkActive}>About Tex Mechanica</NavLink>
                 </li>
