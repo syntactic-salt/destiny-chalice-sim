@@ -6,8 +6,9 @@ import AppHeader from '../app-header/app-header';
 import Menu from '../menu/menu';
 import CalcGroup from '../calc-group/calc-group';
 import About from '../about/about';
+import Feedback from '../feedback/feedback';
 
-function App() {
+const App = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const headerNode = useRef();
     const handleMenuOpen = () => {
@@ -24,12 +25,13 @@ function App() {
                 <Menu isOpen={isMenuOpen} onMenuClose={handleMenuClose} excludeFromClose={[headerNode]}/>
                 <Switch>
                     <Route exact path='/' component={CalcGroup}/>
-                    <Route path='/about' component={About}/>
+                    <Route exact path='/feedback' component={Feedback}/>>
+                    <Route exact path='/about' component={About}/>
                 </Switch>
             </div>
         </div>
     );
-}
+};
 
 ReactDOM.render((
     <BrowserRouter>
