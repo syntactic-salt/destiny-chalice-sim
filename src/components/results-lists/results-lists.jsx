@@ -8,7 +8,15 @@ export default function ResultsLists(props) {
                 const listItems = [];
 
                 for (let listIndex = 0; listIndex < list.length; listIndex += 1) {
-                    listItems.push(<li className={styles.resultsListItem} key={listIndex}>{list[listIndex]}</li>);
+                    let classNames = styles.resultsListItem;
+                    const { name, color } = list[listIndex];
+
+                    if (color) {
+                        console.log(`resultsListItem${color}`);
+                        classNames += ` ${styles[`resultsListItem${color}`]}`;
+                    }
+
+                    listItems.push(<li className={classNames} key={listIndex}>{name}</li>);
                 }
 
                 return (

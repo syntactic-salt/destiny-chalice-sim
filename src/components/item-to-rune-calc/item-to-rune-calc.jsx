@@ -36,16 +36,12 @@ export default function ItemToRuneCalc() {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        const runeSlotOne = [item.runes[0].name];
+        const runeSlotOne = [item.runes[0]];
         let runeSlotTwo = [...item.runes[1]];
 
         if (intrinsicId) {
             const [intrinsic] = Object.values(intrinsicsModel).filter(intrinsic => intrinsic.id === intrinsicId);
             runeSlotTwo = runeSlotTwo.filter(rune => intrinsic.runes.includes(rune));
-        }
-
-        for (let index = 0; index < runeSlotTwo.length; index += 1) {
-            runeSlotTwo[index] = runeSlotTwo[index].name;
         }
 
         let masterworks = [];
@@ -59,12 +55,47 @@ export default function ItemToRuneCalc() {
         }, []);
 
         if (runeSlotThree.length === 0) {
-            runeSlotThree = ['Empty'];
-        } else {
-            for (let index = 0; index < runeSlotThree.length; index += 1) {
-                runeSlotThree[index] = runeSlotThree[index].name;
-            }
+            runeSlotThree = [{ name: 'Empty' }];
         }
+
+        runeSlotTwo.sort((rune1, rune2) => {
+            const name1 = rune1.name.toLowerCase().replace(/of|the/g, '').replace(/ {2,}/, ' ');
+            const name2 = rune2.name.toLowerCase().replace(/of|the/g, '').replace(/ {2,}/, ' ');
+
+            if (name1 < name2) {
+                return -1;
+            }
+
+            if (name1 > name2) {
+                return 1;
+            }
+
+            return 0;
+        });
+        runeSlotThree.sort((rune1, rune2) => {
+            if (rune1.color === rune2.color) {
+                const name1 = rune1.name.toLowerCase().replace(/of|the/g, '').replace(/ {2,}/, ' ');
+                const name2 = rune2.name.toLowerCase().replace(/of|the/g, '').replace(/ {2,}/, ' ');
+
+                if (name1 < name2) {
+                    return -1;
+                }
+
+                if (name1 > name2) {
+                    return 1;
+                }
+            }
+
+            if (rune1.color < rune2.color) {
+                return -1;
+            }
+
+            if (rune1.color > rune2.color) {
+                return 1;
+            }
+
+            return 0;
+        });
 
         setResults([runeSlotOne, runeSlotTwo, runeSlotThree]);
         setShowResults(true);
