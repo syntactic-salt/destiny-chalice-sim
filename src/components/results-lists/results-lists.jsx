@@ -12,7 +12,6 @@ export default function ResultsLists(props) {
                     const { name, color } = list[listIndex];
 
                     if (color) {
-                        console.log(`resultsListItem${color}`);
                         classNames += ` ${styles[`resultsListItem${color}`]}`;
                     }
 

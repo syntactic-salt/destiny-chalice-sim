@@ -110,6 +110,10 @@ export default function ItemToRuneCalc() {
             return <option key={index} value={id}>{name}</option>;
         });
 
+        if (intrinsics.length === 0) {
+            setIntrinsicId('');
+        }
+
         const masterworks = matchedItem.masterworks.sort(nameSort).map(({ id, name }, index) => {
             return <option key={index} value={id}>{name}</option>;
         });
@@ -162,7 +166,7 @@ export default function ItemToRuneCalc() {
                             <select className={styles.calculatorFieldPicker}
                                     onChange={handleMasterwork}
                                     value={masterworkId}
-                                    disabled={!masterworkOptions.length}>
+                                    disabled={masterworkOptions.length === 0}>
                                 <option value="">Random</option>
                                 {masterworkOptions}
                             </select>
