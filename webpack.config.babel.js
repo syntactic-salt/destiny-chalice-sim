@@ -154,7 +154,6 @@ export default (env) => {
                 { from: 'src/images/**/*.ico', to: 'images/', flatten: true },
                 { from: 'src/localizable/**/*.json', to: 'localizable/', flatten: true },
                 { from: 'src/localizable/**/*.json', to: 'content/en/', flatten: true },
-                { from: 'content/', to: 'content/', ignore: env.production ? ['*'] : [] },
             ]),
         ],
     };
