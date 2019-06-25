@@ -1,30 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import styles from './item-to-rune-calc.scss';
 import Drawer from '../drawer/drawer';
 import ResultsLists from '../results-lists/results-lists';
 import itemsModel from '../../models/items';
 import intrinsicsModel from '../../models/intrinsics';
-
-const nameSort = (val1, val2) => {
-    const name1 = val1.name.toLowerCase();
-    const name2 = val2.name.toLowerCase();
-
-    if (name1 > name2) {
-        return 1;
-    }
-
-    if (name1 < name2) {
-        return -1;
-    }
-
-    return 0;
-};
-
-const itemOptions = Object.values(itemsModel).sort(nameSort).map(({ id, name }, index) => {
-    return <option key={index} value={id}>{name}</option>;
-});
+import LocalizationsContext from '../../contexts/localizations';
 
 export default function ItemToRuneCalc() {
+    const { uiStrings, runeStrings, intrinsicStrings, masterworkStrings, itemStrings, colorStrings } = useContext(LocalizationsContext);
     const [itemId, setItemId] = useState('');
     const [item, setItem] = useState(undefined);
     const [intrinsicId, setIntrinsicId] = useState('');
@@ -33,6 +16,22 @@ export default function ItemToRuneCalc() {
     const [masterworkOptions, setMasterworkOptions] = useState([]);
     const [results, setResults] = useState([]);
     const [showResults, setShowResults] = useState(false);
+    const itemOptions = Object.values(itemsModel).sort((item1, item2) => {
+        const name1 = itemStrings[item1.id].toLowerCase();
+        const name2 = itemStrings[item2.id].toLowerCase();
+
+        if (name1 < name2) {
+            return -1;
+        }
+
+        if (name1 > name2) {
+            return 1;
+        }
+
+        return 0;
+    }).map(({ id }, index) => {
+        return <option key={index} value={id}>{itemStrings[id]}</option>;
+    });
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -54,13 +53,9 @@ export default function ItemToRuneCalc() {
             return accumulator;
         }, []);
 
-        if (runeSlotThree.length === 0) {
-            runeSlotThree = [{ name: 'Empty' }];
-        }
-
         runeSlotTwo.sort((rune1, rune2) => {
-            const name1 = rune1.name.toLowerCase().replace(/of|the/g, '').replace(/ {2,}/, ' ');
-            const name2 = rune2.name.toLowerCase().replace(/of|the/g, '').replace(/ {2,}/, ' ');
+            const name1 = runeStrings[rune1.id].toLowerCase().replace(/of|the/g, '').replace(/ {2,}/, ' ');
+            const name2 = runeStrings[rune2.id].toLowerCase().replace(/of|the/g, '').replace(/ {2,}/, ' ');
 
             if (name1 < name2) {
                 return -1;
@@ -73,9 +68,9 @@ export default function ItemToRuneCalc() {
             return 0;
         });
         runeSlotThree.sort((rune1, rune2) => {
-            if (rune1.color === rune2.color) {
-                const name1 = rune1.name.toLowerCase().replace(/of|the/g, '').replace(/ {2,}/, ' ');
-                const name2 = rune2.name.toLowerCase().replace(/of|the/g, '').replace(/ {2,}/, ' ');
+            if (colorStrings[rune1.color.id] === colorStrings[rune2.color.id]) {
+                const name1 = runeStrings[rune1.id].toLowerCase().replace(/of|the/g, '').replace(/ {2,}/, ' ');
+                const name2 = runeStrings[rune2.id].toLowerCase().replace(/of|the/g, '').replace(/ {2,}/, ' ');
 
                 if (name1 < name2) {
                     return -1;
@@ -86,11 +81,11 @@ export default function ItemToRuneCalc() {
                 }
             }
 
-            if (rune1.color < rune2.color) {
+            if (colorStrings[rune1.color.id] < colorStrings[rune2.color.id]) {
                 return -1;
             }
 
-            if (rune1.color > rune2.color) {
+            if (colorStrings[rune1.color.id] > colorStrings[rune2.color.id]) {
                 return 1;
             }
 
@@ -106,16 +101,42 @@ export default function ItemToRuneCalc() {
         setItemId(selectedItemId);
 
         const [matchedItem] = Object.values(itemsModel).filter(filterItem => filterItem.id === selectedItemId);
-        const intrinsics = matchedItem.intrinsics.sort(nameSort).map(({ id, name }, index) => {
-            return <option key={index} value={id}>{name}</option>;
+        const intrinsics = matchedItem.intrinsics.sort((intrinsic1, intrinsic2) => {
+            const name1 = intrinsicStrings[intrinsic1.id].toLowerCase();
+            const name2 = intrinsicStrings[intrinsic2.id].toLowerCase();
+
+            if (name1 < name2) {
+                return -1;
+            }
+
+            if (name1 > name2) {
+                return 1;
+            }
+
+            return 0;
+        }).map(({ id }, index) => {
+            return <option key={index} value={id}>{intrinsicStrings[id]}</option>;
         });
 
         if (intrinsics.length === 0) {
             setIntrinsicId('');
         }
 
-        const masterworks = matchedItem.masterworks.sort(nameSort).map(({ id, name }, index) => {
-            return <option key={index} value={id}>{name}</option>;
+        const masterworks = matchedItem.masterworks.sort((masterwork1, masterwork2) => {
+            const name1 = masterworkStrings[masterwork1.id].toLowerCase();
+            const name2 = masterworkStrings[masterwork2.id].toLowerCase();
+
+            if (name1 < name2) {
+                return -1;
+            }
+
+            if (name1 > name2) {
+                return 1;
+            }
+
+            return 0;
+        }).map(({ id }, index) => {
+            return <option key={index} value={id}>{masterworkStrings[id]}</option>;
         });
 
         setItem(matchedItem);
@@ -137,46 +158,46 @@ export default function ItemToRuneCalc() {
 
     return (
         <section className={styles.calculator}>
-            <h2 className={styles.calculatorHeading}>Chalice of Opulence Calculator</h2>
+            <h2 className={styles.calculatorHeading}>{uiStrings.chaliceCalcHeading}</h2>
             <form className={styles.calculatorForm} onSubmit={handleSubmit}>
                 <fieldset>
                     <div className={styles.calculatorFieldGroup}>
                         <div className={styles.calculatorField}>
-                            <label className={styles.calculatorFieldLabel}>Item</label>
+                            <label className={styles.calculatorFieldLabel}>{uiStrings.item}</label>
                             <select className={styles.calculatorFieldPicker}
                                     onChange={handleItem}
                                     value={itemId}
-                                    required>f
-                                <option value="">Choose an Item</option>
+                                    required>
+                                <option value="">{uiStrings.chooseAnItem}</option>
                                 {itemOptions}
                             </select>
                         </div>
                         <div className={styles.calculatorField}>
-                            <label className={styles.calculatorFieldLabel}>Intrinsic</label>
+                            <label className={styles.calculatorFieldLabel}>{uiStrings.intrinsic}</label>
                             <select className={styles.calculatorFieldPicker}
                                     onChange={handleIntrinsic}
                                     value={intrinsicId}
                                     disabled={!intrinsicOptions.length}>
-                                <option value="">Random</option>
+                                <option value="">{uiStrings.random}</option>
                                 {intrinsicOptions}
                             </select>
                         </div>
                         <div className={styles.calculatorField}>
-                            <label className={styles.calculatorFieldLabel}>Masterwork</label>
+                            <label className={styles.calculatorFieldLabel}>{uiStrings.masterwork}</label>
                             <select className={styles.calculatorFieldPicker}
                                     onChange={handleMasterwork}
                                     value={masterworkId}
                                     disabled={masterworkOptions.length === 0}>
-                                <option value="">Random</option>
+                                <option value="">{uiStrings.random}</option>
                                 {masterworkOptions}
                             </select>
                         </div>
                     </div>
                 </fieldset>
-                <button type={'submit'} className={styles.calculatorTrigger} disabled={!itemId}>Find Runes</button>
+                <button type={'submit'} className={styles.calculatorTrigger} disabled={!itemId}>{uiStrings.findRunes}</button>
             </form>
             <Drawer onClose={handleClose} isOpen={showResults}>
-                <ResultsLists headings={['Rune I', 'Rune II', 'Rune III']} lists={results} />
+                <ResultsLists headings={[uiStrings.rune1, uiStrings.rune2, uiStrings.rune3]} lists={results} />
             </Drawer>
         </section>
     );

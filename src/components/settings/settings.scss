@@ -1,0 +1,21 @@
+@import "../../styles/variables";
+
+.settings {
+    &__field {
+        display: flex;
+        flex-direction: column;
+        margin-top: $spacing-default;
+    }
+
+    &__label {
+        margin-bottom: $spacing-default / 2;
+    }
+
+    &__options {
+        background-color: #444;
+        border: 1px solid #333;
+        border-radius: 2px;
+        padding: $spacing-default;
+        width: 300px;
+    }
+}

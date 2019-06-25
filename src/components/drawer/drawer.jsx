@@ -1,8 +1,10 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useContext } from 'react';
 import styles from './drawer.scss';
+import LocalizationsContext from '../../contexts/localizations';
 
 export default function Drawer(props) {
     const node = useRef();
+    const { uiStrings } = useContext(LocalizationsContext);
 
     const handleClickOutside = (event) => {
         if (node.current.contains(event.target)) {
@@ -38,7 +40,7 @@ export default function Drawer(props) {
     return (
         <div className={drawerStyles()} ref={node}>
             <header className={styles.drawerHeader}>
-                <h3 className={styles.drawerHeaderHeading}>RESULTS</h3>
+                <h3 className={styles.drawerHeaderHeading}>{uiStrings.drawerHeading}</h3>
                 <button className={styles.drawerHeaderButton} onClick={props.onClose}>X</button>
             </header>
             <section className={styles.drawerContent}>{props.children}</section>

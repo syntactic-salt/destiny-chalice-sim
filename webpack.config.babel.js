@@ -152,6 +152,8 @@ export default (env) => {
                 { from: 'src/manifest.json', to: '.' },
                 { from: 'src/images/**/*.png', to: 'images/', flatten: true },
                 { from: 'src/images/**/*.ico', to: 'images/', flatten: true },
+                { from: 'src/localizable/**/*.json', to: 'localizable/', flatten: true },
+                { from: 'src/localizable/**/*.json', to: 'content/en/', flatten: true },
             ]),
         ],
     };

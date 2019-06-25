@@ -1,8 +1,10 @@
-import React, { useState } from 'react';
+import React, { useContext } from 'react';
 import styles from './app-header.scss';
 import Logo from '../logo/logo';
+import LocalizationsContext from '../../contexts/localizations';
 
 const AppHeader = React.forwardRef((props, ref) => {
+    const { uiStrings } = useContext(LocalizationsContext);
     const handleClick = () => {
         if (props.isMenuOpen) {
             props.onMenuClose();
@@ -31,10 +33,10 @@ const AppHeader = React.forwardRef((props, ref) => {
                     onClick={handleClick}
                     ref={ref}>
                 <span className={styles.hamburgerBox}>
-                    <span className={styles.hamburgerInner}></span>
+                    <span className={styles.hamburgerInner}/>
                 </span>
             </button>
-            <h1 className={styles.headerHeading}>Tex Mechanica</h1>
+            <h1 className={styles.headerHeading}>{uiStrings.siteHeading}</h1>
             <Logo className={styles.headerLogo}/>
         </header>
     );
