@@ -21,7 +21,7 @@ const Settings = () => {
     return (
         <GenericWrapper>
             <h2>{uiStrings.settingsHeading}</h2>
-            <form className={styles.settingsForm}>
+            <form>
                 <div className={styles.settingsField}>
                     <label className={styles.settingsLabel}>{uiStrings.defaultLanguage}</label>
                     <select value={languageCode} onChange={handleChange} className={styles.settingsOptions}>

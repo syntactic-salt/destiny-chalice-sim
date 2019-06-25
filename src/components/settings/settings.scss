@@ -1,16 +1,10 @@
 @import "../../styles/variables";
 
 .settings {
-    &__form {
-        align-items: center;
-        display: flex;
-        flex-direction: column;
-    }
-
     &__field {
         display: flex;
         flex-direction: column;
-        padding: $spacing-default;
+        margin-top: $spacing-default;
     }
 
     &__label {
