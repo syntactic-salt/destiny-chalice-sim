@@ -24,5 +24,6 @@
   "empty": "Empty",
   "findItems": "Find Items",
   "settingsHeading": "Settings",
-  "defaultLanguage": "Default Language"
+  "defaultLanguage": "Default Language",
+  "localizationAnnouncement": "Tex Mechanica has been translated into 24 languages. You can set your default language by accessing the settings page in the site menu."
 }
