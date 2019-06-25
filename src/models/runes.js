@@ -1,63 +1,53 @@
+import colors from './colors';
+
 const runes = {
     joy: {
         id: 1,
-        color: 'Purple',
-        name: 'Rune of Joy',
+        color: colors.purple,
     },
     beast: {
         id: 2,
-        color: 'Purple',
-        name: 'Rune of the Beast',
+        color: colors.purple,
     },
     jubilation: {
         id: 3,
-        color: 'Purple',
-        name: 'Rune of Jubilation',
+        color: colors.purple,
     },
     cunning: {
         id: 4,
-        color: 'Red',
-        name: 'Rune of Cunning',
+        color: colors.red,
     },
     gluttony: {
         id: 5,
-        color: 'Red',
-        name: 'Rune of Gluttony',
+        color: colors.red,
     },
     ambition: {
         id: 6,
-        color: 'Red',
-        name: 'Rune of Ambition',
+        color: colors.red,
     },
     war: {
         id: 7,
-        color: 'Green',
-        name: 'Rune of War',
+        color: colors.green,
     },
     desire: {
         id: 8,
-        color: 'Green',
-        name: 'Rune of Desire',
+        color: colors.green,
     },
     pride: {
         id: 9,
-        color: 'Green',
-        name: 'Rune of Pride',
+        color: colors.green,
     },
     pleasure: {
         id: 10,
-        color: 'Blue',
-        name: 'Rune of Pleasure',
+        color: colors.blue,
     },
     excess: {
         id: 11,
-        color: 'Blue',
-        name: 'Rune of Excess',
+        color: colors.blue,
     },
     wealth: {
         id: 12,
-        color: 'Blue',
-        name: 'Rune of Wealth',
+        color: colors.blue,
     },
 };
 

@@ -1,11 +1,14 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import GenericWrapper from '../generic-wrapper/generic-wrapper';
+import LocalizationsContext from '../../contexts/localizations';
 
 const Feedback = () => {
+    const { uiStrings } = useContext(LocalizationsContext);
+
     return (
         <GenericWrapper>
-            <h2>Feedback & Bug Reports</h2>
-            <p>You can report bugs or submit feedback on the Discord server. You can access it with this <a href="https://discord.gg/re74rf4" target="_blank">invite</a>.</p>
+            <h2>{uiStrings.feedbackHeading}</h2>
+            <p>{uiStrings.feedbackParagraph1} <a href="https://discord.gg/re74rf4" target="_blank">{uiStrings.feedbackParagraph1Link}</a>.</p>
         </GenericWrapper>
     );
 };

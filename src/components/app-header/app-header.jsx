@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styles from './app-header.scss';
 import Logo from '../logo/logo';
 

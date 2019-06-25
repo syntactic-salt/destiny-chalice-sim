@@ -1,0 +1,27 @@
+@import "../../styles/variables";
+
+.settings {
+    &__form {
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__field {
+        display: flex;
+        flex-direction: column;
+        padding: $spacing-default;
+    }
+
+    &__label {
+        margin-bottom: $spacing-default / 2;
+    }
+
+    &__options {
+        background-color: #444;
+        border: 1px solid #333;
+        border-radius: 2px;
+        padding: $spacing-default;
+        width: 300px;
+    }
+}
