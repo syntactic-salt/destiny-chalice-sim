@@ -5,11 +5,17 @@
   "main": "src/index.js",
   "scripts": {
     "build": "npm run clean && npm run webpack",
-    "builddev": "npm run clean && npm run webpackdev",
+    "build:dev": "npm run clean && npm run webpack:dev",
+    "clear-cache": "bash ~/scripts/clear-cache.sh",
+    "clear-cache:dev": "bash ~/scripts/clear-cache-dev.sh",
     "clean": "rm -rf build/",
+    "deploy": "bash ~/scripts/deploy.sh",
+    "deploy:dev": "bash ~/scripts/deploy-dev.sh",
+    "release": "npm run build && npm run deploy && npm run clear-cache",
+    "release:dev": "npm run build:dev && npm run deploy:dev && npm run clear-cache:dev",
     "start": "webpack-dev-server --env.production=0 --mode=development --host 0.0.0.0 --port 8080",
     "webpack": "webpack --env.production --mode=production --devtool source-map --config-register @babel/register",
-    "webpackdev": "webpack --env.production=0 --mode=development --devtool cheap-module-eval-source-map --config-register @babel/register"
+    "webpack:dev": "webpack --env.production=0 --mode=development --devtool cheap-module-eval-source-map --config-register @babel/register"
   },
   "repository": {
     "type": "git",
