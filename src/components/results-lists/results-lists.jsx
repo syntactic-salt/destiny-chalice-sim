@@ -1,7 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import styles from './results-lists.scss';
+import LocalizationsContext from '../../contexts/localizations';
 
 export default function ResultsLists(props) {
+    const { runeStrings } = useContext(LocalizationsContext);
+
     return (
         <div className={styles.results}>
             {props.lists.map((list, index) => {
@@ -9,13 +12,13 @@ export default function ResultsLists(props) {
 
                 for (let listIndex = 0; listIndex < list.length; listIndex += 1) {
                     let classNames = styles.resultsListItem;
-                    const { name, color } = list[listIndex];
+                    const { id, color } = list[listIndex];
 
                     if (color) {
-                        classNames += ` ${styles[`resultsListItem${color}`]}`;
+                        classNames += ` ${styles[`resultsListItem${color.id}`]}`;
                     }
 
-                    listItems.push(<li className={classNames} key={listIndex}>{name}</li>);
+                    listItems.push(<li className={classNames} key={listIndex}>{runeStrings[id]}</li>);
                 }
 
                 return (

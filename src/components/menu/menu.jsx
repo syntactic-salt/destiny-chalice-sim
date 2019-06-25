@@ -1,8 +1,10 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useContext } from 'react';
 import { NavLink } from 'react-router-dom';
 import styles from './menu.scss';
+import LocalizationsContext from '../../contexts/localizations';
 
 export default function Menu(props) {
+    const { uiStrings } = useContext(LocalizationsContext);
     const navRef = useRef();
 
     const handleClickOutside = (event) => {
@@ -55,19 +57,25 @@ export default function Menu(props) {
                     <NavLink className={styles.menuListLink}
                              exact
                              to='/'
-                             activeClassName={styles.menuListLinkActive}>Chalice of Opulence Calculator</NavLink>
+                             activeClassName={styles.menuListLinkActive}>{uiStrings.chaliceCalcMenuLink}</NavLink>
                 </li>
                 <li>
                     <NavLink className={styles.menuListLink}
                              exact
                              to='/feedback'
-                             activeClassName={styles.menuListLinkActive}>Feedback & Bug Reports</NavLink>
+                             activeClassName={styles.menuListLinkActive}>{uiStrings.feedbackMenuLink}</NavLink>
                 </li>
                 <li>
                     <NavLink className={styles.menuListLink}
                              exact
                              to='/about'
-                             activeClassName={styles.menuListLinkActive}>About Tex Mechanica</NavLink>
+                             activeClassName={styles.menuListLinkActive}>{uiStrings.aboutMenuLink}</NavLink>
+                </li>
+                <li>
+                    <NavLink className={styles.menuListLink}
+                             exact
+                             to='/settings'
+                             activeClassName={styles.menuListLinkActive}>{uiStrings.settingsMenuLink}</NavLink>
                 </li>
             </ul>
         </nav>
