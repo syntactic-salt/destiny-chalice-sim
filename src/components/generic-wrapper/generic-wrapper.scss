@@ -1,11 +1,14 @@
 @import "../../styles/variables";
 
 .wrapper {
+    background-color: $color-primary;
     padding: $spacing-default * 2;
     width: 100vw;
 
-    @media (min-width: 900px) {
-        margin: 0 auto;
-        width: 60vw;
+    &__body {
+        @media (min-width: 900px) {
+            margin: 0 auto;
+            width: 60vw;
+        }
     }
 }
