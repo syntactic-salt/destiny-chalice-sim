@@ -57,7 +57,7 @@ export default function Menu(props) {
                     <NavLink className={styles.menuListLink}
                              exact
                              to='/'
-                             activeClassName={styles.menuListLinkActive}>{uiStrings.chaliceCalcMenuLink}</NavLink>
+                             activeClassName={styles.menuListLinkActive}>{uiStrings.chaliceCalcHeading}</NavLink>
                 </li>
                 <li>
                     <NavLink className={styles.menuListLink}

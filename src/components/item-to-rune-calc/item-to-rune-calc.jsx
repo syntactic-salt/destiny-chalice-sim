@@ -162,7 +162,7 @@ export default function ItemToRuneCalc() {
 
     return (
         <section className={styles.calculator}>
-            <h2 className={styles.calculatorHeading}>Chalice of Opulence Calculator</h2>
+            <h2 className={styles.calculatorHeading}>{uiStrings.chaliceCalcHeading}</h2>
             <form className={styles.calculatorForm} onSubmit={handleSubmit}>
                 <fieldset>
                     <div className={styles.calculatorFieldGroup}>

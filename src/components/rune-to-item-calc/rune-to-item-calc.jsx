@@ -97,7 +97,7 @@ export default function RuneToItemCalc(props) {
 
     return (
         <section className={`${styles.calculator} ${props.className}`}>
-            <h2 className={styles.calculatorHeading}>Chalice of Opulence Calculator</h2>
+            <h2 className={styles.calculatorHeading}>{uiStrings.chaliceCalcHeading}</h2>
             <form className={styles.calculatorForm} onSubmit={handleSubmit}>
                 <fieldset>
                     <div className={styles.calculatorFieldGroup}>
@@ -136,7 +136,7 @@ export default function RuneToItemCalc(props) {
                 <button type={'submit'} className={styles.calculatorTrigger} disabled={!runeOne}>{uiStrings.findItems}</button>
             </form>
             <Drawer onClose={handleClose} isOpen={showResults}>
-                <ResultsTable headings={['Item', 'Intrinsic', 'Masterwork']} results={results} />
+                <ResultsTable headings={[uiStrings.item, uiStrings.intrinsic, uiStrings.masterwork]} results={results} />
             </Drawer>
         </section>
     );
