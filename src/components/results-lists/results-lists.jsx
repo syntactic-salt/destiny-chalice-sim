@@ -3,22 +3,26 @@ import styles from './results-lists.scss';
 import LocalizationsContext from '../../contexts/localizations';
 
 export default function ResultsLists(props) {
-    const { runeStrings } = useContext(LocalizationsContext);
+    const { runeStrings, uiStrings } = useContext(LocalizationsContext);
 
     return (
         <div className={styles.results}>
             {props.lists.map((list, index) => {
                 const listItems = [];
 
-                for (let listIndex = 0; listIndex < list.length; listIndex += 1) {
-                    let classNames = styles.resultsListItem;
-                    const { id, color } = list[listIndex];
+                if (list.length > 0) {
+                    for (let listIndex = 0; listIndex < list.length; listIndex += 1) {
+                        let classNames = styles.resultsListItem;
+                        const {id, color} = list[listIndex];
 
-                    if (color) {
-                        classNames += ` ${styles[`resultsListItem${color.id}`]}`;
+                        if (color) {
+                            classNames += ` ${styles[`resultsListItem${color.id}`]}`;
+                        }
+
+                        listItems.push(<li className={classNames} key={listIndex}>{runeStrings[id]}</li>);
                     }
-
-                    listItems.push(<li className={classNames} key={listIndex}>{runeStrings[id]}</li>);
+                } else {
+                    listItems.push(<li key="0" className={styles.resultListItem}>{uiStrings.empty}</li>);
                 }
 
                 return (

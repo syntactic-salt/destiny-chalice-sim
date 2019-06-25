@@ -53,10 +53,6 @@ export default function ItemToRuneCalc() {
             return accumulator;
         }, []);
 
-        if (runeSlotThree.length === 0) {
-            runeSlotThree = [{ name: 'Empty' }];
-        }
-
         runeSlotTwo.sort((rune1, rune2) => {
             const name1 = runeStrings[rune1.id].toLowerCase().replace(/of|the/g, '').replace(/ {2,}/, ' ');
             const name2 = runeStrings[rune2.id].toLowerCase().replace(/of|the/g, '').replace(/ {2,}/, ' ');

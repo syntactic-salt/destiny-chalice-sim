@@ -73,8 +73,6 @@ export default function RuneToItemCalc(props) {
             return [itemName, intrinsicName, masterworkName];
         });
 
-        console.log(calcResults);
-
         setResults(calcResults);
         setShowResults(true);
     };
