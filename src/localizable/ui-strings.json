@@ -13,9 +13,9 @@
   "random": "Random",
   "masterwork": "Masterwork",
   "findRunes": "Find Runes",
-  "rune1": "Rune I",
-  "rune2": "Rune II",
-  "rune3": "Rune III",
+  "rune1": "Rune 1",
+  "rune2": "Rune 2",
+  "rune3": "Rune 3",
   "chaliceCalcHeading": "Chalice of Opulence Calculator",
   "feedbackMenuLink": "Feedback & Bug Reports",
   "aboutMenuLink": "About Tex Mechanica",
@@ -25,5 +25,6 @@
   "findItems": "Find Items",
   "settingsHeading": "Settings",
   "defaultLanguage": "Default Language",
-  "localizationAnnouncement": "Tex Mechanica has been translated into 24 languages. You can set your default language by accessing the settings page in the site menu."
+  "localizationAnnouncement": "Tex Mechanica has been translated into 24 languages. You can set your default language by accessing the settings page in the site menu.",
+  "siteHeading": "Tex Mechanica"
 }
