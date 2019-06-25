@@ -3,12 +3,10 @@ import styles from './rune-to-item-calc.scss';
 import Drawer from '../drawer/drawer';
 import runesModel from '../../models/runes';
 import itemsModel from '../../models/items';
-import itemPossibilityGenerator from '../../services/item-possibility-generator';
 import ResultsTable from "../results-table/results-table";
 import LocalizationsContext from '../../contexts/localizations';
 
 const runes = Object.values(runesModel);
-const possibilities = itemPossibilityGenerator(itemsModel);
 
 export default function RuneToItemCalc(props) {
     const { uiStrings, runeStrings, colorStrings, itemStrings, masterworkStrings, intrinsicStrings } = useContext(LocalizationsContext);

@@ -1,6 +1,5 @@
 import React from 'react';
 import uiStrings from '../localizable/ui-strings.json';
-import availableLanguageStrings from '../localizable/available-languages.json';
 import colorStrings from '../localizable/colors.json';
 import intrinsicStrings from '../localizable/intrinsics.json';
 import itemStrings from '../localizable/items.json';
@@ -9,7 +8,6 @@ import runeStrings from '../localizable/runes.json'
 
 export const defaultLocalizations = {
     uiStrings,
-    availableLanguageStrings,
     colorStrings,
     itemStrings,
     intrinsicStrings,
