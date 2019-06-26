@@ -15,21 +15,44 @@ export default function RuneToItemCalc(props) {
     const [runeThree, setRuneThree] = useState('');
     const [results, setResults] = useState([]);
     const [showResults, setShowResults] = useState(false);
-    const options = runes.sort((rune1, rune2) => {
-        const name1 = runeStrings[rune1.id].toLowerCase().replace(/of|the/g, '').replace(/ {2,}/, ' ');
-        const name2 = runeStrings[rune2.id].toLowerCase().replace(/of|the/g, '').replace(/ {2,}/, ' ');
 
-        if (name1 > name2) {
-            return 1;
+    runes.sort((rune1, rune2) => {
+        if (colorStrings[rune1.color.id] === colorStrings[rune2.color.id]) {
+            const name1 = runeStrings[rune1.id].toLowerCase().replace(/of|the/g, '').replace(/ {2,}/, ' ');
+            const name2 = runeStrings[rune2.id].toLowerCase().replace(/of|the/g, '').replace(/ {2,}/, ' ');
+
+            if (name1 < name2) {
+                return -1;
+            }
+
+            if (name1 > name2) {
+                return 1;
+            }
         }
 
-        if (name1 < name2) {
+        if (colorStrings[rune1.color.id] < colorStrings[rune2.color.id]) {
             return -1;
         }
 
+        if (colorStrings[rune1.color.id] > colorStrings[rune2.color.id]) {
+            return 1;
+        }
+
         return 0;
-    }).map(({ id, color }, index) => {
-        return <option value={id} key={index}>{`${runeStrings[id]} (${colorStrings[color.id]})`}</option>;
+    });
+
+    const runesByColor = [];
+    runesByColor.push(runes.slice(0, 3));
+    runesByColor.push(runes.slice(3, 6));
+    runesByColor.push(runes.slice(6, 9));
+    runesByColor.push(runes.slice(9, 12));
+
+    const optionGroups = runesByColor.map((runesOfColor, index) => {
+        const options = runesOfColor.map(({ id }) => {
+            return <option key={id} value={id}>{runeStrings[id]}</option>;
+        });
+
+        return <optgroup key={index} label={colorStrings[runesOfColor[0].color.id]}>{options}</optgroup>;
     });
 
     const handleSubmit = (event) => {
@@ -106,7 +129,7 @@ export default function RuneToItemCalc(props) {
                                     value={runeOne}
                                     required>
                                 <option value="">{uiStrings.chooseARune}</option>
-                                {options}
+                                {optionGroups}
                             </select>
                         </div>
                         <div className={styles.calculatorField}>
@@ -116,7 +139,7 @@ export default function RuneToItemCalc(props) {
                                     value={runeTwo}
                                     disabled={!runeOne}>
                                 <option value="">{uiStrings.empty}</option>
-                                {options}
+                                {optionGroups}
                             </select>
                         </div>
                         <div className={styles.calculatorField}>
@@ -126,7 +149,7 @@ export default function RuneToItemCalc(props) {
                                     value={runeThree}
                                     disabled={!runeOne}>
                                 <option value="">{uiStrings.empty}</option>
-                                {options}
+                                {optionGroups}
                             </select>
                         </div>
                     </div>
