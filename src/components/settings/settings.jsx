@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import styles from './settings.scss';
 import GenericWrapper from '../generic-wrapper/generic-wrapper';
 import LocationsContext from '../../contexts/localizations';
@@ -17,6 +17,10 @@ const Settings = () => {
         LocalizationService.getLocalizations(code, true)
             .then(localizations => updateLocalizations(localizations));
     };
+
+    useEffect(() => {
+        document.title = `${uiStrings.siteHeading} - ${uiStrings.settingsTitle}`;
+    }, []);
 
     return (
         <GenericWrapper>

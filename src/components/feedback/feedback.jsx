@@ -1,9 +1,13 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import GenericWrapper from '../generic-wrapper/generic-wrapper';
 import LocalizationsContext from '../../contexts/localizations';
 
 const Feedback = () => {
     const { uiStrings } = useContext(LocalizationsContext);
+
+    useEffect(() => {
+        document.title = `${uiStrings.siteHeading} - ${uiStrings.feedbackTitle}`;
+    }, []);
 
     return (
         <GenericWrapper>

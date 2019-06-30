@@ -26,5 +26,9 @@
   "settingsHeading": "Settings",
   "defaultLanguage": "Default Language",
   "localizationAnnouncement": "Tex Mechanica has been translated into 24 languages. You can set your default language by accessing the settings page in the site menu.",
-  "siteHeading": "Tex Mechanica"
+  "siteHeading": "Tex Mechanica",
+  "calcTitle": "Find the results of your Menagerie drops",
+  "aboutTitle": "Find out about Tex Mechanica",
+  "feedbackTitle": "Report a bug or submit feedback",
+  "settingsTitle": "Configure your settings"
 }
