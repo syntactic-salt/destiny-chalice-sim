@@ -163,30 +163,36 @@ export default function ItemToRuneCalc() {
                 <fieldset>
                     <div className={styles.calculatorFieldGroup}>
                         <div className={styles.calculatorField}>
-                            <label className={styles.calculatorFieldLabel}>{uiStrings.item}</label>
+                            <label className={styles.calculatorFieldLabel} htmlFor='item'>{uiStrings.item}</label>
                             <select className={styles.calculatorFieldPicker}
                                     onChange={handleItem}
                                     value={itemId}
+                                    id='item'
+                                    name='item'
                                     required>
                                 <option value="">{uiStrings.chooseAnItem}</option>
                                 {itemOptions}
                             </select>
                         </div>
                         <div className={styles.calculatorField}>
-                            <label className={styles.calculatorFieldLabel}>{uiStrings.intrinsic}</label>
+                            <label className={styles.calculatorFieldLabel} htmlFor='intrinsic'>{uiStrings.intrinsic}</label>
                             <select className={styles.calculatorFieldPicker}
                                     onChange={handleIntrinsic}
                                     value={intrinsicId}
+                                    id='intrinsic'
+                                    name='intrinsic'
                                     disabled={!intrinsicOptions.length}>
                                 <option value="">{uiStrings.random}</option>
                                 {intrinsicOptions}
                             </select>
                         </div>
                         <div className={styles.calculatorField}>
-                            <label className={styles.calculatorFieldLabel}>{uiStrings.masterwork}</label>
+                            <label className={styles.calculatorFieldLabel} htmlFor='masterwork'>{uiStrings.masterwork}</label>
                             <select className={styles.calculatorFieldPicker}
                                     onChange={handleMasterwork}
                                     value={masterworkId}
+                                    id='masterwork'
+                                    name='masterwork'
                                     disabled={masterworkOptions.length === 0}>
                                 <option value="">{uiStrings.random}</option>
                                 {masterworkOptions}

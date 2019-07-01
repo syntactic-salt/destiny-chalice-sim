@@ -30,5 +30,7 @@
   "calcTitle": "Find the results of your Menagerie drops",
   "aboutTitle": "Find out about Tex Mechanica",
   "feedbackTitle": "Report a bug or submit feedback",
-  "settingsTitle": "Configure your settings"
+  "settingsTitle": "Configure your settings",
+  "openMenu": "Open Menu",
+  "closeMenu": "Close Menu"
 }

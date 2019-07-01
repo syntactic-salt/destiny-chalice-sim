@@ -27,8 +27,12 @@ const Settings = () => {
             <h2>{uiStrings.settingsHeading}</h2>
             <form>
                 <div className={styles.settingsField}>
-                    <label className={styles.settingsLabel}>{uiStrings.defaultLanguage}</label>
-                    <select value={languageCode} onChange={handleChange} className={styles.settingsOptions}>
+                    <label className={styles.settingsLabel} htmlFor='language'>{uiStrings.defaultLanguage}</label>
+                    <select value={languageCode}
+                            id='language'
+                            name='language'
+                            onChange={handleChange}
+                            className={styles.settingsOptions}>
                         {Object.entries(availableLanguages).sort((lang1, lang2) => {
                             if (lang1[1] < lang2[1]) {
                                 return -1;

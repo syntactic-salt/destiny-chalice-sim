@@ -31,7 +31,8 @@ const AppHeader = React.forwardRef((props, ref) => {
         <header className={styles.header}>
             <button className={buttonStyles()}
                     onClick={handleClick}
-                    ref={ref}>
+                    ref={ref}
+                    aria-label={props.isMenuOpen ? uiStrings.closeMenu : uiStrings.openMenu}>
                 <span className={styles.hamburgerBox}>
                     <span className={styles.hamburgerInner}/>
                 </span>
