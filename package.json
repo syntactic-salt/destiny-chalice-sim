@@ -1,21 +1,23 @@
 {
   "name": "destiny-chalice-sim",
-  "version": "1.0.9",
+  "version": "1.1.1",
   "description": "",
   "main": "src/index.js",
   "scripts": {
     "build": "npm run clean && npm run webpack",
     "build:dev": "npm run clean && npm run webpack:dev",
+    "build:qa": "npm run clean && npm run webpack:qa",
     "clear-cache": "bash ~/scripts/clear-cache.sh",
-    "clear-cache:dev": "bash ~/scripts/clear-cache-dev.sh",
+    "clear-cache:qa": "bash ~/scripts/clear-cache-qa.sh",
     "clean": "rm -rf build/",
     "deploy": "bash ~/scripts/deploy.sh",
-    "deploy:dev": "bash ~/scripts/deploy-dev.sh",
+    "deploy:qa": "bash ~/scripts/deploy-qa.sh",
     "release": "npm run build && npm run deploy && npm run clear-cache",
-    "release:dev": "npm run build:dev && npm run deploy:dev && npm run clear-cache:dev",
+    "release:qa": "npm run build:qa && npm run deploy:qa && npm run clear-cache:qa",
     "start": "webpack-dev-server --env.production=0 --mode=development --host 0.0.0.0 --port 8080",
     "webpack": "webpack --env.production --mode=production --devtool source-map --config-register @babel/register",
-    "webpack:dev": "webpack --env.production=0 --mode=development --devtool cheap-module-eval-source-map --config-register @babel/register"
+    "webpack:dev": "webpack --env.production=0 --mode=development --devtool cheap-module-eval-source-map --config-register @babel/register",
+    "webpack:qa": "webpack --env.production --mode=development --devtool source-map --config-register @babel/register"
   },
   "repository": {
     "type": "git",

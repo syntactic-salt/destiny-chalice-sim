@@ -123,30 +123,36 @@ export default function RuneToItemCalc(props) {
                 <fieldset>
                     <div className={styles.calculatorFieldGroup}>
                         <div className={styles.calculatorField}>
-                            <label className={styles.calculatorFieldLabel}>{uiStrings.rune1}</label>
+                            <label className={styles.calculatorFieldLabel} htmlFor="rune1">{uiStrings.rune1}</label>
                             <select className={styles.calculatorFieldPicker}
                                     onChange={handleRuneOne}
                                     value={runeOne}
+                                    id='rune1'
+                                    name='rune1'
                                     required>
                                 <option value="">{uiStrings.chooseARune}</option>
                                 {optionGroups}
                             </select>
                         </div>
                         <div className={styles.calculatorField}>
-                            <label className={styles.calculatorFieldLabel}>{uiStrings.rune2}</label>
+                            <label className={styles.calculatorFieldLabel} htmlFor='rune2'>{uiStrings.rune2}</label>
                             <select className={styles.calculatorFieldPicker}
                                     onChange={handleRuneTwo}
                                     value={runeTwo}
+                                    id='rune2'
+                                    name='rune2'
                                     disabled={!runeOne}>
                                 <option value="">{uiStrings.empty}</option>
                                 {optionGroups}
                             </select>
                         </div>
                         <div className={styles.calculatorField}>
-                            <label className={styles.calculatorFieldLabel}>{uiStrings.rune3}</label>
+                            <label className={styles.calculatorFieldLabel} htmlFor='rune3'>{uiStrings.rune3}</label>
                             <select className={styles.calculatorFieldPicker}
                                     onChange={handleRuneThree}
                                     value={runeThree}
+                                    id='rune3'
+                                    name='rune3'
                                     disabled={!runeOne}>
                                 <option value="">{uiStrings.empty}</option>
                                 {optionGroups}

@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { Tab, TabList, TabPanel, Tabs } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 import RuneToItemCalc from '../rune-to-item-calc/rune-to-item-calc';
@@ -9,6 +9,10 @@ import LocalizationsContext from '../../contexts/localizations';
 
 export default function CalcGroup() {
     const { uiStrings } = useContext(LocalizationsContext);
+
+    useEffect(() => {
+        document.title = `${uiStrings.siteHeading} - ${uiStrings.calcTitle}`;
+    }, []);
 
     return (
         <Tabs className={styles.calcGroup}
