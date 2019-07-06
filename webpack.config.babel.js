@@ -1,14 +1,35 @@
 import path from 'path';
-import HTMLWebpackPlugin from 'html-webpack-plugin';
+import HTMLPlugin from 'html-webpack-plugin';
 import MiniCSSExtractPlugin from 'mini-css-extract-plugin';
 import CSSNano from 'cssnano';
 import Autoprefixer from 'autoprefixer';
-import TerserWebpackPlugin from 'terser-webpack-plugin';
-import CopyWebpackPlugin from 'copy-webpack-plugin';
+import TerserPlugin from 'terser-webpack-plugin';
+import CopyPlugin from 'copy-webpack-plugin';
+import HTMLCriticalPlugin from 'html-critical-webpack-plugin';
 import { GenerateSW } from 'workbox-webpack-plugin';
 
+const htmlCriticalPluginHelper = (isProd) => {
+    if (isProd) {
+        return new HTMLCriticalPlugin(
+            {
+                base: path.resolve(__dirname, 'build'),
+                src: 'index.html',
+                dest: 'index.html',
+                inline: true,
+                minify: true,
+                extract: true,
+                width: 400,
+                height: 800,
+                penthouse: { blockJSRequests: false },
+            },
+        );
+    }
+
+    return () => {};
+};
+
 export default (env) => {
-    const hashLength = 12;
+    const hashLength = 8;
 
     return {
         entry: {
@@ -96,7 +117,7 @@ export default (env) => {
         },
         optimization: {
             minimizer: [
-                new TerserWebpackPlugin(
+                new TerserPlugin(
                     {
                         sourceMap: true,
                         terserOptions: {
@@ -123,11 +144,11 @@ export default (env) => {
             },
         },
         plugins: [
-            new HTMLWebpackPlugin(
+            new HTMLPlugin(
                 {
                     inject: false,
                     minify: env.production ? { collapseWhitespace: true, removeComments: true, minifyJS: true } : false,
-                    template: 'src/index.html.ejs',
+                    template: path.resolve(__dirname, 'src/index.html.ejs'),
                 },
             ),
             new MiniCSSExtractPlugin(
@@ -135,6 +156,7 @@ export default (env) => {
                     filename: `[name]${env.production ? `.[contenthash:${hashLength}]` : ''}.css`,
                 }
             ),
+            htmlCriticalPluginHelper(env.production),
             new GenerateSW(
                 {
                     cleanupOutdatedCaches: true,
@@ -148,7 +170,7 @@ export default (env) => {
                     skipWaiting: true,
                 },
             ),
-            new CopyWebpackPlugin([
+            new CopyPlugin([
                 { from: 'src/manifest.json', to: '.' },
                 { from: 'src/images/**/*.png', to: 'images/', flatten: true },
                 { from: 'src/images/**/*.ico', to: 'images/', flatten: true },
