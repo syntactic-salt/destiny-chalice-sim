@@ -20,7 +20,7 @@ const Settings = () => {
 
     useEffect(() => {
         document.title = `${uiStrings.siteHeading} - ${uiStrings.settingsTitle}`;
-    }, []);
+    });
 
     return (
         <GenericWrapper>

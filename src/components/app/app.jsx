@@ -36,14 +36,13 @@ const App = () => {
     return (
         <div className={styles.app}>
             <LocalizationsContext.Provider value={{...localizations, updateLocalizations}}>
-                <LocalizationAnnouncement/>
                 <BrowserRouter>
                     <AppHeader isMenuOpen={isMenuOpen} onMenuClose={handleMenuClose} onMenuOpen={handleMenuOpen} ref={headerNode}/>
                     <div className={styles.appContent}>
                         <Menu isOpen={isMenuOpen} onMenuClose={handleMenuClose} excludeFromClose={[headerNode]}/>
                         <Switch>
                             <Route exact path='/' component={CalcGroup}/>
-                            <Route exact path='/feedback' component={Feedback}/>>
+                            <Route exact path='/feedback' component={Feedback}/>
                             <Route exact path='/about' component={About}/>
                             <Route exact path='/settings' component={Settings}/>
                         </Switch>

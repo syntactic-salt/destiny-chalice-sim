@@ -12,7 +12,7 @@ export default function CalcGroup() {
 
     useEffect(() => {
         document.title = `${uiStrings.siteHeading} - ${uiStrings.calcTitle}`;
-    }, []);
+    });
 
     return (
         <Tabs className={styles.calcGroup}

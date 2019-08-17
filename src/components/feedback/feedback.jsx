@@ -7,7 +7,7 @@ const Feedback = () => {
 
     useEffect(() => {
         document.title = `${uiStrings.siteHeading} - ${uiStrings.feedbackTitle}`;
-    }, []);
+    });
 
     return (
         <GenericWrapper>

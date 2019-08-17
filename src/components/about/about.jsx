@@ -7,7 +7,7 @@ export default function About() {
 
     useEffect(() => {
         document.title = `${uiStrings.siteHeading} - ${uiStrings.aboutTitle}`;
-    }, []);
+    });
 
     return (
         <GenericWrapper>
