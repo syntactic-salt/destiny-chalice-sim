@@ -13,9 +13,10 @@
             gtag('js', new Date());
 
             gtag('config', '<%= GAUAID %>', {
-                'custom_map': { 'dimension1': 'networkStatus'}
+                custom_map: { dimension1: 'networkStatus' },
+                siteSpeedSampleRate: 100,
             });
-            gtag('event', 'network_status', { 'networkStatus': 'online' });
+            gtag('event', 'network_status', { networkStatus: 'online' });
         </script>
 
         <title>Tex Mechanica</title>
